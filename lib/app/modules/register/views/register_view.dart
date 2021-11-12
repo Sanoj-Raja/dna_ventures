@@ -1,3 +1,4 @@
+import 'package:dna_ventures/app/constants/app_errors.dart';
 import 'package:dna_ventures/app/utils/text_fields.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -48,6 +49,22 @@ class RegisterView extends GetView<RegisterController> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Text(
+                AppStrings.name,
+                style: Get.textTheme.subtitle1!.copyWith(
+                  color: AppColors.white,
+                ),
+              ),
+              VerticalGap(),
+              UniversalTextField(
+                controller: controller.nameController,
+                keyboardType: TextInputType.name,
+                hintText: AppStrings.name,
+                validatorErrorText: AppErrors.nameErrorText,
+              ),
+              VerticalGap(
+                gap: 20,
+              ),
               Text(
                 AppStrings.mobileNumber,
                 style: Get.textTheme.subtitle1!.copyWith(
