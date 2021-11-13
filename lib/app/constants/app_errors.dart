@@ -4,7 +4,7 @@ class AppErrors {
   static const String phoneNumberErrorText =
       'Please enter correct phone number!';
   static const String passwordErrorText =
-      'Password must have 8 Character!.\nMust have a Capital & Small Letter, Number & Symbol.';
+      'Password must have 8 Character!.\nMust have a Capital & Small Letter, \nNumber & Symbol.';
 
   static const String invalidCredentials = 'Invalid Credentials!';
   static const String invalidPhoneNumberOrPassword =
