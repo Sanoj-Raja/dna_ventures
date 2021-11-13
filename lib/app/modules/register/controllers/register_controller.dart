@@ -12,7 +12,6 @@ class RegisterController extends GetxController {
   final phoneNumberController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-  final confirmPasswordController = TextEditingController();
   final signupFormKey = GlobalKey<FormState>();
   final databaseHelper = Get.find<DataBaseHelper>();
 

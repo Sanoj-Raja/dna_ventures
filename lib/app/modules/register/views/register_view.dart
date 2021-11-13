@@ -115,20 +115,6 @@ class RegisterView extends GetView<RegisterController> {
                 controller: controller.passwordController,
                 hintText: AppStrings.password,
               ),
-              VerticalGap(
-                gap: 20,
-              ),
-              Text(
-                AppStrings.confirmPassword,
-                style: Get.textTheme.subtitle1!.copyWith(
-                  color: AppColors.white,
-                ),
-              ),
-              VerticalGap(),
-              PasswordTextField(
-                controller: controller.confirmPasswordController,
-                hintText: AppStrings.confirmPassword,
-              ),
               Padding(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 50.0,
