@@ -6,9 +6,9 @@ class AppErrors {
   static const String passwordErrorText =
       'Password must have 8 Character!.\nTry a mix of letters, numbers and symbols.';
 
-  static const String cameraAccessDenied = 'Camera Access Denied!';
-  static const String cameraAccessDeniedDetails =
-      'Camera access has been denied, unable to use camera.';
+  static const String invalidPhoneNumberOrPassword = 'Invalid Phone Number or Password!';
+  static const String userAlreadyExists =
+      'User already exists try a different Phone Number!';
 
   static const String errorOccurred = 'Error Occurred.';
   static const String unknownError = 'Unknown Error Occured!';
