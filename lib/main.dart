@@ -8,9 +8,13 @@ import 'app/constants/app_colors.dart';
 import 'app/constants/app_errors.dart';
 import 'app/constants/app_strings.dart';
 import 'app/routes/app_pages.dart';
+import 'app/services/database_helper.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  Get.put<DataBaseHelper>(
+    DataBaseHelper(),
+  );
   await GetStorage.init();
   await SystemChrome.setPreferredOrientations(
     [DeviceOrientation.portraitUp],

@@ -5,7 +5,7 @@ import 'package:path/path.dart'; //used to join paths
 import 'dart:io';
 import 'dart:async';
 
-class MemoDbProvider {
+class DataBaseHelper {
   final String userTable = 'UserTable';
   Future<Database> init() async {
     Directory directory =

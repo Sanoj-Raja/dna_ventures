@@ -26,9 +26,6 @@ class SplashController extends GetxController {
         SessionManager.getUserToken().then(
           (token) {
             if (token.isNotEmpty) {
-              SessionManager.getUserImage();
-              SessionManager.getUserName();
-              SessionManager.getUserEmail();
               Get.offNamed(Routes.HOME);
             } else
               Get.offNamed(Routes.LOGIN);

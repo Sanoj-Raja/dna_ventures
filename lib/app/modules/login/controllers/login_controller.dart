@@ -1,5 +1,10 @@
+import 'package:bot_toast/bot_toast.dart';
+import 'package:dna_ventures/app/constants/app_colors.dart';
+import 'package:dna_ventures/app/constants/app_errors.dart';
+import 'package:dna_ventures/app/constants/app_strings.dart';
 import 'package:dna_ventures/app/local_storage/sessions.dart';
 import 'package:dna_ventures/app/routes/app_pages.dart';
+import 'package:dna_ventures/app/services/database_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -7,6 +12,7 @@ class LoginController extends GetxController {
   final phoneNumberTextController = TextEditingController();
   final passwordTextController = TextEditingController();
   final loginFormKey = GlobalKey<FormState>();
+  final databaseHelper = Get.find<DataBaseHelper>();
 
   @override
   void onInit() {
@@ -23,9 +29,26 @@ class LoginController extends GetxController {
 
   void login() {
     if (loginFormKey.currentState!.validate()) {
-      SessionManager.saveUserToken('Login token saved.').then(
-        (_) {
-          Get.offAllNamed(Routes.HOME);
+      databaseHelper
+          .loginUser(
+        phoneNumberTextController.text,
+        passwordTextController.text,
+      )
+          .then(
+        (userData) {
+          if (userData != null) {
+            SessionManager.saveUserToken('Login token saved.').then(
+              (_) {
+                Get.offAllNamed(Routes.HOME);
+              },
+            );
+          } else {
+            Get.snackbar(
+              AppErrors.userAlreadyExists,
+              AppErrors.userAlreadyExistsDetails,
+              backgroundColor: AppColors.white,
+            );
+          }
         },
       );
     }
@@ -36,6 +59,7 @@ class LoginController extends GetxController {
   }
 
   void forgotPassword() {
+    BotToast.showText(text: AppStrings.notAvailableNow);
     print('Forgot password clicked.');
   }
 }

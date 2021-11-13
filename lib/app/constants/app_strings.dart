@@ -19,6 +19,7 @@ class AppStrings {
   static const String logout = 'Logout';
   static const String viewAndEditProfile = 'View & Edit Profile';
   static const String notifications = 'Notifications';
+  static const String notAvailableNow = 'Not available now!';
   static const String rateApp = 'Rate App';
   static const String rateAppSubHeading = 'Rate us at Play Store / Apple Store';
   static const String help = 'Help';

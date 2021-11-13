@@ -6,8 +6,11 @@ class AppErrors {
   static const String passwordErrorText =
       'Password must have 8 Character!.\nTry a mix of letters, numbers and symbols.';
 
-  static const String invalidPhoneNumberOrPassword = 'Invalid Phone Number or Password!';
-  static const String userAlreadyExists =
+  static const String invalidPhoneNumberOrPassword =
+      'Invalid Phone Number or Password!';
+
+  static const String userAlreadyExists = 'User Already Exists!';
+  static const String userAlreadyExistsDetails =
       'User already exists try a different Phone Number!';
 
   static const String errorOccurred = 'Error Occurred.';

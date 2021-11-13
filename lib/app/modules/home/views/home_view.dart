@@ -1,7 +1,5 @@
-import 'dart:io';
 import 'package:dna_ventures/app/constants/app_colors.dart';
 import 'package:dna_ventures/app/constants/app_strings.dart';
-import 'package:dna_ventures/app/local_storage/sessions.dart';
 import 'package:dna_ventures/app/widgets/body_top_bar.dart';
 import 'package:dna_ventures/app/widgets/custom_buttons.dart';
 import 'package:dna_ventures/app/widgets/gap_widget.dart';
@@ -22,7 +20,6 @@ class HomeView extends GetView<HomeController> {
             BodyTopBar(
               alignLeft: true,
             ),
-            userProfile(),
             VerticalGap(
               gap: 5,
             ),
@@ -35,106 +32,6 @@ class HomeView extends GetView<HomeController> {
             ),
           ],
         ),
-      ),
-    );
-  }
-
-  Widget userProfile() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 25),
-      child: Row(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 4),
-            child: InkWell(
-              onTap: controller.editProfile,
-              child: Obx(
-                () => Stack(
-                  alignment: Alignment.bottomCenter,
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        border: Border.all(
-                          color: AppColors.white,
-                          width: 1.2,
-                        ),
-                      ),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(120),
-                        child: USER_IMAGE.value != ''
-                            ? Image.file(
-                                File(USER_IMAGE.value),
-                                height: 70,
-                                width: 70,
-                                fit: BoxFit.cover,
-                                errorBuilder: (_, __, ___) => Icon(
-                                  Icons.person,
-                                  size: 60,
-                                ),
-                              )
-                            : Container(
-                                color: AppColors.darkBlueBackground,
-                                height: 70,
-                                width: 70,
-                                child: Icon(
-                                  Icons.person,
-                                  size: 60,
-                                  color: AppColors.blackBackground,
-                                ),
-                              ),
-                      ),
-                    ),
-                    Container(
-                      width: 60,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.vertical(
-                          bottom: Radius.circular(50),
-                        ),
-                        color: Colors.black54,
-                      ),
-                      child: Icon(
-                        Icons.camera_alt,
-                        color: AppColors.yellowHighlighter,
-                        size: 16,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-          HorizontalGap(
-            gap: 15,
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                width: Get.width * .6,
-                child: Obx(
-                  () => Text(
-                    USER_NAME.value,
-                    style: Get.textTheme.headline2!.copyWith(
-                      fontSize: 23,
-                    ),
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                ),
-              ),
-              InkWell(
-                onTap: controller.editProfile,
-                child: Text(
-                  AppStrings.viewAndEditProfile,
-                  style: Get.textTheme.subtitle2!.copyWith(
-                    color: AppColors.yellowHighlighter,
-                    decoration: TextDecoration.underline,
-                  ),
-                ),
-              ),
-            ],
-          )
-        ],
       ),
     );
   }
