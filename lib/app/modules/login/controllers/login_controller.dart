@@ -44,8 +44,8 @@ class LoginController extends GetxController {
             );
           } else {
             Get.snackbar(
-              AppErrors.userAlreadyExists,
-              AppErrors.userAlreadyExistsDetails,
+              AppErrors.invalidCredentials,
+              AppErrors.invalidPhoneNumberOrPassword,
               backgroundColor: AppColors.white,
             );
           }

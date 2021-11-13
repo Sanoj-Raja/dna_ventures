@@ -6,6 +6,7 @@ class AppErrors {
   static const String passwordErrorText =
       'Password must have 8 Character!.\nTry a mix of letters, numbers and symbols.';
 
+  static const String invalidCredentials = 'Invalid Credentials!';
   static const String invalidPhoneNumberOrPassword =
       'Invalid Phone Number or Password!';
 
